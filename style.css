@@ -1,99 +1,120 @@
-body {
+body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Comic Sans MS', cursive;
-    min-height: 100vh;
-    overflow: hidden;
-}
-
-#birthdayCanvas {
+    height: 100%;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    overflow-x: hidden;
+    background: black;
+    color: white;
+  }
+  
+  .background-animation {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
-}
-
-.container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    z-index: 1;
-}
-
-.header {
-    margin-bottom: 40px;
-    animation: titleEntrance 1.5s ease-out;
-}
-
-.title {
-    font-size: 4em;
-    color: #fff;
-    text-shadow: 0 0 15px #ff00ff,
-                 0 0 20px #00ffff,
-                 0 0 25px #ff00ff;
-    margin-bottom: 20px;
-}
-
-.message {
-    font-size: 2em;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.photo-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin: 50px 0;
-}
-
-.photo {
     width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 15px;
-    border: 3px solid #ffffff;
-    box-shadow: 0 0 25px #ff69b4;
-    transition: all 0.3s ease;
-}
-
-.dance-btn {
-    padding: 20px 40px;
-    font-size: 1.5em;
-    background: linear-gradient(45deg, #ff00ff, #00ffff);
-    border: none;
-    border-radius: 30px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-shadow: 0 0 10px rgba(0,0,0,0.5);
-    box-shadow: 0 0 20px #ff00ff;
-}
-
-/* Animations */
-@keyframes float-animation {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-20px) rotate(5deg); }
-    75% { transform: translateY(10px) rotate(-5deg); }
-}
-
-@keyframes titleEntrance {
-    0% { transform: scale(0) rotate(360deg); opacity: 0; }
-    100% { transform: scale(1) rotate(0deg); opacity: 1; }
-}
-
-@keyframes discoBackground {
+    height: 100%;
+    background: linear-gradient(270deg, #ff0099, #493240, #00f2fe);
+    background-size: 600% 600%;
+    z-index: -1;
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
-}
-
-.float-animation {
-    animation: float-animation 3s ease-in-out infinite;
-}
-
-.dance-animation {
-    animation: dance 0.5s ease-in-out infinite;
-}
+  }
+  
+  .content {
+    text-align: center;
+    padding-top: 60px;
+  }
+  
+  .flashy-text {
+    font-size: 3em;
+    font-weight: bold;
+    animation: flicker 2s infinite;
+    color: #ffcc00;
+  }
+  
+  @keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  
+  .sub-text {
+    font-size: 1.5em;
+    margin-top: -10px;
+    color: #ff99ff;
+    animation: pulse 3s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  .photo-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .photo {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 0 30px #ff69b4;
+    transition: transform 0.5s;
+  }
+  
+  .photo:hover {
+    transform: scale(1.1);
+  }
+  
+  .wish {
+    margin-top: 30px;
+    font-size: 1.5em;
+    animation: wave 4s infinite;
+    color: #00ffff;
+  }
+  
+  @keyframes wave {
+    0%, 100% { transform: rotateZ(0deg); }
+    50% { transform: rotateZ(3deg); }
+  }
+  
+  .dance-floor {
+    margin-top: 50px;
+    position: relative;
+    height: 200px;
+  }
+  
+  .dancer {
+    width: 100px;
+    height: 100px;
+    background: url('photo2.jpg') no-repeat center/cover;
+    border-radius: 50%;
+    animation: dance 1s infinite alternate;
+    margin: 0 auto;
+  }
+  
+  @keyframes dance {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-30px) rotate(10deg); }
+  }
+  
+  @media (max-width: 600px) {
+    .photo-gallery {
+      flex-direction: column;
+      align-items: center;
+    }
+    .photo {
+      width: 80%;
+      height: auto;
+    }
+  }
