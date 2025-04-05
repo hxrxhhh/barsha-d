@@ -3,28 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday Barsha!</title>
+  <meta name="description" content="A birthday celebration for Barsha">
+  <!-- Open Graph tags for social sharing -->
+  <meta property="og:title" content="Happy Birthday Barsha!">
+  <meta property="og:description" content="Wishing you laughter, joy, and unforgettable memories!">
+  <meta property="og:image" content="preview-image.jpg">
+  <title>🎉 Happy Birthday Barsha!</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Preload important resources -->
+  <link rel="preload" href="happy-birthday-song.mp3" as="audio">
 </head>
 <body>
-  <div class="background-animation"></div>
-  <div class="content">
-    <h1 class="flashy-text">Happy Birthday, Barsha!</h1>
-    <p class="sub-text">To the best friend in the world</p>
-    <div class="photo-gallery">
-      <img src="photo1.jpg" alt="Barsha 1" class="photo" />
-      <img src="photo2.jpg" alt="Barsha 2" class="photo" />
-      <img src="photo3.jpg" alt="Barsha 3" class="photo" />
+  <div class="background-animation" aria-hidden="true"></div>
+  
+  <main class="content">
+    <h1 class="flashy-text">
+      <span role="img" aria-label="Party Popper">🎉</span>
+      Happy Birthday, Barsha!
+      <span role="img" aria-label="Confetti Ball">🎊</span>
+    </h1>
+    
+    <p class="sub-text">To the world's most amazing friend!</p>
+    
+    <section class="photo-gallery" aria-label="Memories with Barsha">
+      <figure class="photo-container">
+        <img src="photo1.jpg" alt="Barsha smiling at a cafe" class="photo" loading="lazy" />
+        <figcaption class="photo-caption">Joyful moments</figcaption>
+      </figure>
+      <!-- Repeat for other photos -->
+    </section>
+
+    <div class="wish" role="alert">
+      <p>Wishing you endless laughter, boundless joy, and unforgettable memories!</p>
+      <div class="confetti-animation" aria-hidden="true"></div>
     </div>
-    <div class="wish">Wishing you laughter, joy, and unforgettable memories!</div>
-    <div class="dance-floor">
-      <div class="dancer"></div>
-    </div>
-    <audio autoplay loop>
+
+    <section class="interactive-section">
+      <button id="music-toggle" class="music-control" aria-label="Toggle music">
+        🎵 Toggle Music
+      </button>
+      <div class="dance-floor" aria-hidden="true">
+        <div class="dancer"></div>
+        <div class="dancer"></div>
+        <div class="dancer"></div>
+      </div>
+    </section>
+
+    <audio id="birthday-audio" loop>
       <source src="happy-birthday-song.mp3" type="audio/mpeg" />
+      <source src="happy-birthday-song.ogg" type="audio/ogg" />
       Your browser does not support the audio element.
     </audio>
-  </div>
-  <script src="script.js"></script>
+  </main>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
