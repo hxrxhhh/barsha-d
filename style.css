@@ -1,88 +1,93 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
-    font-family: 'Arial', sans-serif;
+    font-family: 'Comic Sans MS', cursive;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
+}
+
+#birthdayCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 .container {
+    position: relative;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    z-index: 1;
 }
 
 .header {
     margin-bottom: 40px;
-    animation: fadeIn 2s ease-in;
+    animation: titleEntrance 1.5s ease-out;
 }
 
 .title {
-    font-size: 3em;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    font-size: 4em;
+    color: #fff;
+    text-shadow: 0 0 15px #ff00ff,
+                 0 0 20px #00ffff,
+                 0 0 25px #ff00ff;
+    margin-bottom: 20px;
 }
 
 .message {
-    font-size: 1.5em;
+    font-size: 2em;
     color: #fff;
-    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin: 40px 0;
+    gap: 30px;
+    margin: 50px 0;
 }
 
 .photo {
     width: 100%;
-    height: 300px;
+    height: 350px;
     object-fit: cover;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-}
-
-.photo:hover {
-    transform: scale(1.05);
-}
-
-.dance-btn {
-    padding: 15px 30px;
-    font-size: 1.2em;
-    background-color: #ff69b4;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 25px #ff69b4;
     transition: all 0.3s ease;
 }
 
-.dance-btn:hover {
-    background-color: #ff1493;
-    transform: scale(1.1);
+.dance-btn {
+    padding: 20px 40px;
+    font-size: 1.5em;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px #ff00ff;
 }
 
+/* Animations */
 @keyframes float-animation {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-20px) rotate(5deg); }
+    75% { transform: translateY(10px) rotate(-5deg); }
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+@keyframes titleEntrance {
+    0% { transform: scale(0) rotate(360deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
 }
 
-@keyframes dance {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    50% { transform: rotate(-5deg); }
-    75% { transform: rotate(5deg); }
-    100% { transform: rotate(0deg); }
+@keyframes discoBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .float-animation {
